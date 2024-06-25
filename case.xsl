@@ -8,8 +8,13 @@
             </head>
             <body>
                 <h1><xsl:value-of select="/case/@title"/></h1>
+                <ul>
+                    <xsl:for-each select="/case/link">
+                        <li><a href="{@href}"><xsl:value-of select="@title"/></a></li>
+                    </xsl:for-each>
+                </ul>
                 <div>
-                    <xsl:apply-templates select="/case/*"/>
+                    <xsl:apply-templates select="/case/*[not(self::link)]"/>
                 </div>
             </body>
         </html>
