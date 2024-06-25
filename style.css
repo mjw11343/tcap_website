@@ -1,0 +1,41 @@
+body {
+    font-family: Georgia, serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #4d004d;
+    border-bottom: 2px solid #4d004d;
+    padding-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px 0;
+}
+
+a {
+    text-decoration: none;
+    color: #4d004d;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.datapoint {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.datapoint p {
+    margin: 0;
+}
