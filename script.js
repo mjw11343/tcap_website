@@ -27,17 +27,6 @@ function searchInElement(element, searchText) {
     return false;
 }
 
-function highlightText(text, searchText) {
-    const index = text.toLowerCase().indexOf(searchText);
-    if (index === -1) return text;
-
-    const beforeMatch = text.substring(0, index);
-    const match = text.substring(index, index + searchText.length);
-    const afterMatch = text.substring(index + searchText.length);
-
-    return `${beforeMatch}<span style="background-color: yellow;">${match}</span>${afterMatch}`;
-}
-
 async function searchXML() {
     let input = document.getElementById('searchInput').value.toLowerCase();
     let resultsDiv = document.getElementById('results');
@@ -57,16 +46,9 @@ async function searchXML() {
                 if (searchInElement(items[i], input)) {
                     let result = document.createElement('div');
                     result.className = 'result';
-                    let content = '';
-
-                    for (let child of items[i].childNodes) {
-                        if (child.nodeType === Node.ELEMENT_NODE) {
-                            content += `<strong>${child.nodeName}:</strong> ${highlightText(child.textContent, input)}<br>`;
-                        }
-                    }
-
-                    result.innerHTML = `<strong>File:</strong> ${file} <br><strong>Element:</strong> ${items[i].nodeName} <br> ${content}`;
+                    result.innerHTML = `<strong>File:</strong> ${file} <br> <strong>Element:</strong> ${items[i].nodeName} <br> <strong>Content:</strong> ${items[i].textContent}`;
                     resultsDiv.appendChild(result);
+                    break; // Once found, break to avoid duplicate results
                 }
             }
         }
