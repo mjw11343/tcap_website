@@ -6,6 +6,7 @@
         <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</description>
     </content>
     <collection>
+        <link href="search.html" title="Search Case Summaries"/>
         <link href="collection/2018/2018.xml" title="2018"/>
     </collection>
 </document>
