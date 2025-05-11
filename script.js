@@ -1,8 +1,7 @@
 /**
  * Summary:
  * This script allows searching through multiple XML files for a specified text.
- * If the search text is found in a document, it highlights **all occurrences** of the matched text
- * and displays the document's content in a readable format.
+ * It searches **only in <text> elements** and groups matches by file path.
  */
 
 /**
@@ -33,7 +32,7 @@ async function loadFolders() {
  * Loads an XML file from the given file path and retrieves its raw text content.
  *
  * @param {string} filePath - The path to the XML file.
- * @returns {string|null} - The raw text content of the XML or null if loading failed.
+ * @returns {Document|null} - The parsed XML document or null if loading failed.
  */
 async function loadXML(filePath) {
     console.log(`🔄 Attempting to load file: ${filePath}`);
@@ -51,7 +50,8 @@ async function loadXML(filePath) {
         }
 
         console.log(`✅ Successfully loaded: ${filePath}`);
-        return await response.text();
+        const text = await response.text();
+        return (new window.DOMParser()).parseFromString(text, "application/xml");
     } catch (error) {
         console.error(`❌ Exception thrown when loading ${filePath}:`, error);
         return null;
@@ -76,7 +76,7 @@ function highlightAllOccurrences(text, searchText) {
 /**
  * Summary:
  * Searches through all XML files listed in the folders array for the specified text.
- * If any match is found, it displays the **entire document** with all matches highlighted.
+ * Displays the matching **elements only**, grouped by file path with bold headings and highlighted text.
  */
 async function searchXML() {
     let input = document.getElementById('searchInput').value.toLowerCase();
@@ -101,51 +101,59 @@ async function searchXML() {
 
     let resultsFound = false;
 
+    // 🗂️ **Group results by file path**
+    const groupedResults = {};
+
     // Iterate over all folders and files
     for (let folder of folders) {
         for (let file of folder.files) {
             console.log(`🔄 Searching in file: ${file}`);
 
-            const rawXML = await loadXML(file); 
-            if (!rawXML) {
+            const xmlDoc = await loadXML(file);
+            if (!xmlDoc) {
                 console.error(`❌ Loading failed for: ${file}`);
                 continue;
             }
 
-            // **Debugging line to show raw content**
-            console.log(`📝 Loaded content for ${file}:`, rawXML.slice(0, 200) + "...");
+            const textElements = xmlDoc.getElementsByTagName('text');
 
-            // Check if the search term exists in the entire XML document
-            if (rawXML.toLowerCase().includes(input)) {
-                console.log(`✅ Match found in ${file}`);
+            for (let element of textElements) {
+                if (element.textContent.toLowerCase().includes(input)) {
+                    console.log(`✅ Match found in ${file}`);
+                    
+                    const parent = element.parentNode;
+                    const heading = parent.getElementsByTagName('heading')[0]?.textContent || "No Heading";
+                    const highlightedText = highlightAllOccurrences(element.textContent, input);
 
-                // Highlight all occurrences
-                const highlightedText = highlightAllOccurrences(rawXML, input);
+                    // If the file is not yet in the groupedResults, create it
+                    if (!groupedResults[file]) {
+                        groupedResults[file] = [];
+                    }
 
-                // Format the XML:
-                // - Make <heading> tags bold
-                // - Reduce unnecessary line breaks
-                const formattedText = highlightedText
-                    .replace(/<heading>(.*?)<\/heading>/gi, '<strong>$1</strong>')
-                    .replace(/\n\s*\n/g, '\n');  // Remove extra line breaks
-
-                // Create result HTML
-                let resultContent = `
-                    <div class="result">
-                        <strong>File:</strong> <a href="${file}" target="_blank">${file}</a><br>
-                        <pre style="white-space: pre-wrap; font-size: 12px;">${formattedText}</pre>
+                    // Push the result into the file's group
+                    groupedResults[file].push(`
+                        <strong>${heading}</strong><br>
+                        <pre style="white-space: pre-wrap; font-size: 12px;">${highlightedText}</pre>
                         <hr>
-                    </div>
-                `;
+                    `);
 
-                // Append to results
-                resultsDiv.innerHTML += resultContent;
-                resultsFound = true;
-            } else {
-                console.log(`🚫 No matches found in ${file}`);
+                    resultsFound = true;
+                }
             }
         }
     }
+
+    // 📝 **Render Grouped Results**
+    Object.keys(groupedResults).forEach((file) => {
+        const combinedResults = groupedResults[file].join("");
+        let resultContent = `
+            <div class="result">
+                <strong>File:</strong> <a href="${file}" target="_blank">${file}</a><br>
+                ${combinedResults}
+            </div>
+        `;
+        resultsDiv.innerHTML += resultContent;
+    });
 
     if (!resultsFound) {
         console.log("🚫 No matches found in any files.");
