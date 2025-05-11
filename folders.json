@@ -1,7 +1,9 @@
 [
     {
         "year": 2018,
-        "files": ["collection/2018/18-AC-002.xml"]
+        "files": [  "collection/2018/18-AC-002.xml", 
+                    "collection/2018/18-AC-003.xml", 
+                    "collection/2018/18-AC-004.xml"]
     }, 
     {
         "year": 2019,
