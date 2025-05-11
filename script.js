@@ -12,12 +12,20 @@
  * @returns {Array} - The array of folder configurations.
  */
 async function loadFolders() {
-    const response = await fetch('folders.json'); // Fetch the JSON configuration file
-    if (!response.ok) {
-        console.error('Failed to load folders.json'); // Log error if fetch fails
-        return []; // Return empty array if loading failed
+    console.log("🔄 Attempting to load folders.json...");
+    try {
+        const response = await fetch('folders.json');
+        if (!response.ok) {
+            console.error(`❌ Failed to load folders.json - Status: ${response.status}`);
+            return [];
+        }
+        const data = await response.json();
+        console.log("✅ Successfully loaded folders.json:", data);
+        return data;
+    } catch (error) {
+        console.error("❌ Error while loading folders.json:", error);
+        return [];
     }
-    return await response.json(); // Parse and return the JSON content
 }
 
 /**
@@ -28,12 +36,26 @@ async function loadFolders() {
  * @returns {string|null} - The raw text content of the XML or null if loading failed.
  */
 async function loadXML(filePath) {
-    const response = await fetch(filePath); // Fetch the XML file
-    if (!response.ok) {
-        console.error(`❌ Failed to load XML file: ${filePath}`);
-        return null; // Return null if loading failed
+    console.log(`🔄 Attempting to load file: ${filePath}`);
+    try {
+        const response = await fetch(filePath);
+
+        if (!response.ok) {
+            console.error(`❌ Failed to load XML file: ${filePath} - Status: ${response.status}`);
+            if (response.status === 404) {
+                console.warn(`📁 404 Error: File not found at path: ${filePath}`);
+            } else if (response.status === 500) {
+                console.warn(`🔎 500 Error: Server issue for file: ${filePath}`);
+            }
+            return null;
+        }
+
+        console.log(`✅ Successfully loaded: ${filePath}`);
+        return await response.text();
+    } catch (error) {
+        console.error(`❌ Exception thrown when loading ${filePath}:`, error);
+        return null;
     }
-    return await response.text(); // Return the raw XML text
 }
 
 /**
@@ -46,6 +68,7 @@ async function loadXML(filePath) {
  * @returns {string} - The text with all occurrences of the search text highlighted.
  */
 function highlightAllOccurrences(text, searchText) {
+    if (!text) return text;
     const regex = new RegExp(searchText, 'gi');
     return text.replace(regex, `<span style="background-color: yellow;">$&</span>`);
 }
@@ -56,24 +79,41 @@ function highlightAllOccurrences(text, searchText) {
  * If any match is found, it displays the **entire document** with all matches highlighted.
  */
 async function searchXML() {
-    let input = document.getElementById('searchInput').value.toLowerCase(); // Get the search input
-    let resultsDiv = document.getElementById('results'); // Get the results div
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    let resultsDiv = document.getElementById('results');
     resultsDiv.innerHTML = ''; // Clear previous results
 
-    console.log(`🔎 Searching for: ${input}`);
+    if (!input) {
+        console.warn("⚠️ Search term is empty. Please enter a value.");
+        resultsDiv.innerHTML = `<p>Please enter a search term.</p>`;
+        return;
+    }
 
-    const folders = await loadFolders(); // Load the folders configuration
+    console.log(`🔎 Searching for: ${input}`);
+    
+    const folders = await loadFolders();
+
+    if (folders.length === 0) {
+        console.error("🚫 No folders found. Check if folders.json is loaded correctly.");
+        resultsDiv.innerHTML = `<p>Error loading folder configuration. Please check the console.</p>`;
+        return;
+    }
+
+    let resultsFound = false;
 
     // Iterate over all folders and files
     for (let folder of folders) {
         for (let file of folder.files) {
-            console.log(`🔎 Searching in file: ${file}`);  // <-- LOGGING EACH FILE
+            console.log(`🔄 Searching in file: ${file}`);
 
-            const rawXML = await loadXML(file); // Load the raw XML text
+            const rawXML = await loadXML(file); 
             if (!rawXML) {
-                console.error(`❌ Failed to load ${file}`);
+                console.error(`❌ Loading failed for: ${file}`);
                 continue;
             }
+
+            // **Debugging line to show raw content**
+            console.log(`📝 Loaded content for ${file}:`, rawXML.slice(0, 200) + "...");
 
             // Check if the search term exists in the entire XML document
             if (rawXML.toLowerCase().includes(input)) {
@@ -82,18 +122,33 @@ async function searchXML() {
                 // Highlight all occurrences
                 const highlightedText = highlightAllOccurrences(rawXML, input);
 
-                // Create result HTML
-                let resultContent = `<strong>File:</strong> <a href="${file}" target="_blank">${file}</a> <br>`;
-                resultContent += `<pre>${highlightedText}</pre><hr>`;
+                // Format the XML:
+                // - Make <heading> tags bold
+                // - Reduce unnecessary line breaks
+                const formattedText = highlightedText
+                    .replace(/<heading>(.*?)<\/heading>/gi, '<strong>$1</strong>')
+                    .replace(/\n\s*\n/g, '\n');  // Remove extra line breaks
 
-                // Create and append the result div
-                let result = document.createElement('div');
-                result.className = 'result';
-                result.innerHTML = resultContent;
-                resultsDiv.appendChild(result);
+                // Create result HTML
+                let resultContent = `
+                    <div class="result">
+                        <strong>File:</strong> <a href="${file}" target="_blank">${file}</a><br>
+                        <pre style="white-space: pre-wrap; font-size: 12px;">${formattedText}</pre>
+                        <hr>
+                    </div>
+                `;
+
+                // Append to results
+                resultsDiv.innerHTML += resultContent;
+                resultsFound = true;
             } else {
                 console.log(`🚫 No matches found in ${file}`);
             }
         }
+    }
+
+    if (!resultsFound) {
+        console.log("🚫 No matches found in any files.");
+        resultsDiv.innerHTML = `<p>No matches found.</p>`;
     }
 }
