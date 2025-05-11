@@ -27,8 +27,8 @@
                     <input type="text" id="searchInput" placeholder="Search..."/>
                     <button onclick="searchXML()">Search</button>
                 </div>
-                <div id="results"></div>
                 <a href="index.xml">Back to Index</a>
+                <div id="results"></div>
 
                 <script src="script.js"></script>
             </body>
