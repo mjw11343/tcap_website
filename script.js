@@ -3,14 +3,23 @@
  * This script allows searching through multiple XML files for a specified text.
  * If the search text is found in a document, it highlights the matched text and 
  * displays the document's content with bolded headings. The results are displayed 
- * on the search.html page.
+ * on the search.xml page.
  */
 
-// List of folders and their corresponding XML files to be searched
-const folders = [
-    { year: 2018, files: ['collection/2018/18-AC-002.xml'] }
-    // Add more years and file paths as needed
-];
+/**
+ * Summary:
+ * Loads the JSON configuration file for folders.
+ *
+ * @returns {Array} - The array of folder configurations.
+ */
+async function loadFolders() {
+    const response = await fetch('folders.json'); // Fetch the JSON configuration file
+    if (!response.ok) {
+        console.error('Failed to load folders.json'); // Log error if fetch fails
+        return []; // Return empty array if loading failed
+    }
+    return await response.json(); // Parse and return the JSON content
+}
 
 /**
  * Summary:
@@ -31,21 +40,21 @@ async function loadXML(filePath) {
 
 /**
  * Summary:
- * Recursively searches through all subelements of the given element to check if 
+ * Recursively searches through all text elements of the given element to check if 
  * the search text is present.
  *
  * @param {Node} element - The XML element to search within.
  * @param {string} searchText - The text to search for.
  * @returns {boolean} - True if the search text is found, otherwise false.
  */
-function searchInElement(element, searchText) {
-    if (element.nodeType === Node.TEXT_NODE) {
-        return element.nodeValue.toLowerCase().includes(searchText); // Check if text node contains search text
+function searchInTextElements(element, searchText) {
+    if (element.nodeName === "text" && element.textContent.toLowerCase().includes(searchText)) {
+        return true; // Check if text element contains search text
     }
 
     // Recursively search child nodes
     for (let i = 0; i < element.childNodes.length; i++) {
-        if (searchInElement(element.childNodes[i], searchText)) {
+        if (searchInTextElements(element.childNodes[i], searchText)) {
             return true;
         }
     }
@@ -85,25 +94,34 @@ async function searchXML() {
 
     console.log(`Searching for: ${input}`);
 
+    const folders = await loadFolders(); // Load the folders configuration
+
     // Iterate over all folders and files
     for (let folder of folders) {
         for (let file of folder.files) {
             const xml = await loadXML(file); // Load the XML file
+            console.log(file)
             if (!xml) {
+                console.log('Failed loading.')
                 continue; // Skip if loading failed
             }
 
             let found = false; // Flag to indicate if search text is found in the document
-            let resultContent = `<strong>File:</strong> ${file} <br><strong>Element:</strong> ${xml.documentElement.nodeName} <br>`; // Initialize result content
+            let resultContent = `<strong>File:</strong> <a href="${file}" target="_blank">${file}</a> <br>`; // Initialize result content with link to file
 
             let items = xml.getElementsByTagName('*'); // Get all elements in the document
             for (let i = 0; i < items.length; i++) {
-                if (searchInElement(items[i], input)) {
+                // Skip elements within <nav> tags
+                if (items[i].closest('nav')) {
+                    continue;
+                }
+
+                if (searchInTextElements(items[i], input)) {
                     found = true; // Set flag to true if search text is found
-                    for (let child of items[i].childNodes) {
-                        if (child.nodeType === Node.ELEMENT_NODE) {
-                            resultContent += `<strong>${child.nodeName}:</strong> ${highlightText(child.textContent, input)}<br>`; // Add highlighted content
-                        }
+                    let heading = items[i].parentNode.getElementsByTagName('heading')[0]?.textContent;
+                    let text = items[i].textContent;
+                    if (heading && text) {
+                        resultContent += `<strong>${heading}:</strong> ${highlightText(text, input)}<br>`; // Add highlighted content
                     }
                     break; // Stop searching once a match is found
                 }

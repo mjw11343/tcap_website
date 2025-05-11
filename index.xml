@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="collection.xsl"?>
-<document title="main">
-    <content>
-        <heading>Oneida Nation Judiciary - Tribal Court of Appeals Project</heading>
-        <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</description>
-    </content>
-    <collection>
-        <link href="search.xml" title="Search Case Summaries"/>
-        <link href="collection/2018/2018.xml" title="2018"/>
-    </collection>
+<document title="Oneida Nation Judiciary - Tribal Court of Appeals Project">
+  <content>
+    <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</description>
+  </content>
+  <collection>
+    <link href="search.xml" title="Search Case Summaries" />
+    <link href="collection/2018/2018.xml" title="2018" />
+    <link href="collection/2019/2019.xml" title="2019" />
+  </collection>
 </document>

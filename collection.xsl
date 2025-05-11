@@ -9,7 +9,7 @@
                 <link rel="stylesheet" type="text/css" href="style.css"/>
             </head>
             <body>
-                <h1><xsl:value-of select="/document/content/heading"/></h1>
+                <h1><xsl:value-of select="/document/@title"/></h1>
                 <p><xsl:value-of select="/document/content/description"/></p>
                 <ul>
                     <xsl:for-each select="/document/collection/link">
