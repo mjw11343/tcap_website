@@ -16,13 +16,9 @@
             </head>
             <body>
                 <xsl:variable name="basePath" select="/document/@collection_path" />
-                <div style="display: flex; align-items: flex-end;">
-                    <img width="200" style="margin-right: 15px;">
-                        <xsl:attribute name="src">
-                            <xsl:value-of select="concat($basePath, 'img/Untitled_Artwork_6.png')" />
-                        </xsl:attribute>
-                    </img>
-                    <h1 style="margin: 0;"><xsl:value-of select="/document/@title"/></h1>
+                <div class="flex-row">
+                    <img class="header-img" width="200" src="../../img/Untitled_Artwork_6.png" />
+                    <h1><xsl:value-of select="/document/@title"/></h1>
                 </div>
                 <hr/>
                 <p><xsl:value-of select="/document/content/description"/></p>
@@ -31,21 +27,12 @@
 
                 <ul>
                     <xsl:for-each select="/document/collection/link">
-                        <ul style="list-style-type: none; padding: 0; display: flex; align-items: center;">
-                            <li style="display: flex; align-items: center; margin: 5px;">
-                                <a href="{@href}" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
-                                    <xsl:value-of select="@title"/>
-
-                                    <!-- Properly Insert the src using the stored variable -->
-                                    <img width="50" style="margin-left: 8px;">
-                                        <xsl:attribute name="src">
-                                            <xsl:value-of select="concat($basePath, 'img/Untitled_Artwork_2-rotated.png')" />
-                                        </xsl:attribute>
-                                    </img>
-
-                                </a>
-                            </li>
-                        </ul>
+                        <li>
+                            <a href="{@href}">
+                                <xsl:value-of select="@title"/>
+                                <img width="50" src="../../img/Untitled_Artwork_2-rotated.png" />
+                            </a>
+                        </li>
                     </xsl:for-each>
                 </ul>
             </body>
