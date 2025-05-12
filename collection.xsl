@@ -17,7 +17,11 @@
             <body>
                 <xsl:variable name="basePath" select="/document/@collection_path" />
                 <div class="flex-row">
-                    <img class="header-img" width="200" src="../../img/Untitled_Artwork_6.png" />
+                    <img class="header-img" width="200"
+                        <xsl:attribute name="src">
+                            <xsl:value-of select="concat($basePath, 'img/Untitled_Artwork_6.png')" />
+                        </xsl:attribute>
+                    </img>
                     <h1><xsl:value-of select="/document/@title"/></h1>
                 </div>
                 <hr/>
@@ -30,7 +34,11 @@
                         <li>
                             <a href="{@href}">
                                 <xsl:value-of select="@title"/>
-                                <img width="50" src="../../img/Untitled_Artwork_2-rotated.png" />
+                                <img width="50">
+                                    <xsl:attribute name="src">
+                                        <xsl:value-of select="concat($basePath, 'img/Untitled_Artwork_2-rotated.png')" />
+                                    </xsl:attribute>
+                                </img>
                             </a>
                         </li>
                     </xsl:for-each>
