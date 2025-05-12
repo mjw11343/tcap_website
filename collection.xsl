@@ -17,7 +17,7 @@
             <body>
                 <xsl:variable name="basePath" select="/document/@collection_path" />
                 <div class="flex-row">
-                    <img class="header-img" width="200"
+                    <img class="header-img" width="200">
                         <xsl:attribute name="src">
                             <xsl:value-of select="concat($basePath, 'img/Untitled_Artwork_6.png')" />
                         </xsl:attribute>
