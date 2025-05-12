@@ -3,12 +3,13 @@ body {
     background-color: #f8f8f8;
     margin: 0;
     padding: 20px;
+    font-size: 20px;
 }
 
 h1 {
     color: #4d004d;
-    border-bottom: 2px solid #4d004d;
     padding-bottom: 10px;
+    font-size: 40px;
 }
 
 ul {

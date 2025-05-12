@@ -1,11 +1,5 @@
 /**
  * Summary:
- * This script allows searching through multiple XML files for a specified text.
- * It searches **only in <text> elements** and groups matches by file path.
- */
-
-/**
- * Summary:
  * Loads the JSON configuration file for folders.
  *
  * @returns {Array} - The array of folder configurations.
@@ -125,12 +119,10 @@ async function searchXML() {
                     const heading = parent.getElementsByTagName('heading')[0]?.textContent || "No Heading";
                     const highlightedText = highlightAllOccurrences(element.textContent, input);
 
-                    // If the file is not yet in the groupedResults, create it
                     if (!groupedResults[file]) {
                         groupedResults[file] = [];
                     }
 
-                    // Push the result into the file's group
                     groupedResults[file].push(`
                         <strong>${heading}</strong><br>
                         <pre style="white-space: pre-wrap; font-size: 12px;">${highlightedText}</pre>
@@ -159,4 +151,45 @@ async function searchXML() {
         console.log("🚫 No matches found in any files.");
         resultsDiv.innerHTML = `<p>No matches found.</p>`;
     }
+}
+
+/**
+ * Summary:
+ * Downloads the search results as a `.txt` file.
+ */
+function downloadResults() {
+    const resultsDiv = document.getElementById('results');
+    if (!resultsDiv.innerHTML.trim()) {
+        alert("No results to download!");
+        return;
+    }
+
+    let textContent = "";
+    const results = resultsDiv.querySelectorAll(".result");
+
+    results.forEach((result) => {
+        const filePath = result.querySelector("a").textContent;
+        textContent += `===========================\n`;
+        textContent += `File: ${filePath}\n`;
+        textContent += `===========================\n\n`;
+
+        // Grab all the sections within the result
+        const sections = result.querySelectorAll("pre");
+        sections.forEach((section) => {
+            textContent += section.textContent + "\n\n";
+        });
+    });
+
+    // Create a downloadable file
+    const blob = new Blob([textContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+
+    // Create a temporary link to trigger download
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `Search_Results.txt`;
+    link.click();
+
+    // Clean up the object URL
+    URL.revokeObjectURL(url);
 }
