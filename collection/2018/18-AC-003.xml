@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../case.xsl"?>
+<case title="18-AC-003" collection_path="../../">
+    <link href="../../index.xml" title="Back to Main Collection"/>
+    <link href="2018.xml" title="Back to 2018 Collection"/>
+    <CaseNum>
+        <heading>Case Number</heading>
+        <text>18-AC-002</text>
+    </CaseNum>
+    <Summary>
+        <heading>Summary</heading>
+        <text>On June 17th, 2017, Respondent Dustin Fish and his supervisor, Keith Janssen, were involved in an altercation...</text>
+    </Summary>
+    <Researcher>
+        <heading>Researcher</heading>
+        <text>Michael Williams</text>
+    </Researcher>
+    <ReviewerDate>
+        <heading>Reviewer and Date</heading>
+        <text></text>
+    </ReviewerDate>
+    <AppealOf>
+        <heading>Appeal Of</heading>
+        <text></text>
+    </AppealOf>
+    <DateRendered>
+        <heading>Date Rendered</heading>
+        <text>2018-12-24</text>
+    </DateRendered>
+    <JudgesCommissioners>
+        <heading>Judges/Commissioners</heading>
+        <text>Susan G. Daniels; Leland Wigg-Ninham; Gerald L. Hill</text>
+    </JudgesCommissioners>
+    <Party1Title>
+        <heading>Party 1 Title</heading>
+        <text>Dr. Ravindran Vir</text>
+    </Party1Title>
+    <Party1Names>
+        <heading>Party 1 Name(s)</heading>
+        <text>Dustin Fish</text>
+    </Party1Names>
+    <Party2Title>
+        <heading>Party 2 Title</heading>
+        <text></text>
+    </Party2Title>
+    <Party2Names>
+        <heading>Party 2 Name(s)</heading>
+        <text></text>
+    </Party2Names>
+    <StageOfAppeal>
+        <heading>Stage of Appeal</heading>
+        <text>Final Decision</text>
+    </StageOfAppeal>
+    <Facts>
+        <heading>Facts</heading>
+        <text>On June 17th, 2017, Respondent Dustin Fish and his supervisor, Keith Janssen, were involved in an altercation...</text>
+    </Facts>
+    <LegalQuestions>
+        <heading>Legal Questions</heading>
+        <text>Was the Oneida Personnel Commission decision an abuse of discretion?</text>
+    </LegalQuestions>
+    <Conclusion>
+        <heading>Conclusion</heading>
+        <text>The Court of Appeals reversed the Oneida Personnel Commission and held the decision was an abuse of discretion...</text>
+    </Conclusion>
+    <Holding>
+        <heading>Holding</heading>
+        <text>Reversed</text>
+    </Holding>
+    <Disposition>
+        <heading>Disposition</heading>
+        <text></text>
+    </Disposition>
+    <Rule>
+        <heading>Rule</heading>
+        <text>A lower court "by definition abuses its discretion when it makes an error of law."</text>
+    </Rule>
+    <CategoryTopicKeywords>
+        <heading>Category/Topic/Keywords</heading>
+        <text>Oneida Personnel Commission; Disciplinary Action; Abuse of Discretion; Sexual Harassment; Employee Protection Order</text>
+    </CategoryTopicKeywords>
+    <ConstitutionCitations>
+        <heading>Oneida Constitution Citations</heading>
+        <text>V.D.2.I.(a); V.D.2.IV.(b); V.D.2.IV.(j); 801.8-3</text>
+    </ConstitutionCitations>
+    <CodeCitations>
+        <heading>Oneida Code Citations</heading>
+        <text>801.8-2(a)(2)</text>
+    </CodeCitations>
+    <CaseCitations>
+        <heading>Oneida Case Citations</heading>
+        <text>Somers v. Powless, 17-AC-002</text>
+    </CaseCitations>
+    <ForeignCourtsCitations>
+        <heading>Foreign Courts Citations</heading>
+        <text>Koon v. United States, 518 U.S. 81, 100 (1996)</text>
+    </ForeignCourtsCitations>
+    <OtherCitations>
+        <heading>Other Citations</heading>
+        <text>Black's Law Dictionary 7th edition (Abuse)</text>
+    </OtherCitations>
+    <Jurisdiction>
+        <heading>Jurisdiction</heading>
+        <text></text>
+    </Jurisdiction>
+    <Dissent>
+        <heading>Dissent</heading>
+        <text>Yes</text>
+    </Dissent>
+    <PublishInReporter>
+        <heading>Publish in Reporter?</heading>
+        <text>Yes</text>
+    </PublishInReporter>
+    <QuestionsNotes>
+        <heading>Questions/Notes</heading>
+        <text>Blurred lines between arbitrary and capricious vs abuse of discretion</text>
+    </QuestionsNotes>
+    <Quotes>
+        <heading>Quotes</heading>
+        <text></text>
+    </Quotes>
+    <ThisCaseCitation>
+        <heading>This Case Citation</heading>
+        <text>Ravinder Vir v. Dustin Fish, 18-AC-002, December 24th, 2018</text>
+    </ThisCaseCitation>
+    <HistoricalCitation>
+        <heading>Historical Citation</heading>
+        <text></text>
+    </HistoricalCitation>
+</case>

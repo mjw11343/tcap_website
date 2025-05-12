@@ -1,16 +1,52 @@
+/* ===============================
+   Global Layout and Body
+=============================== */
 body {
     font-family: Georgia, serif;
     background-color: #f8f8f8;
     margin: 0;
     padding: 20px;
+    font-size: 18px;
+    line-height: 1.6;
 }
 
+/* ===============================
+   Headings and Titles
+=============================== */
 h1 {
     color: #4d004d;
-    border-bottom: 2px solid #4d004d;
     padding-bottom: 10px;
+    font-size: 40px;
+    margin: 0;
 }
 
+h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* ===============================
+   Section Container Styling
+=============================== */
+.section-container {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-weight: bold;
+    color: #4d004d;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+/* ===============================
+   Lists and Links
+=============================== */
 ul {
     list-style-type: none;
     padding: 0;
@@ -18,24 +54,73 @@ ul {
 
 li {
     margin: 5px 0;
+    display: flex;
+    align-items: center;
 }
 
 a {
     text-decoration: none;
     color: #4d004d;
+    display: flex;
+    align-items: center;
 }
 
 a:hover {
     text-decoration: underline;
 }
 
-.datapoint {
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ccc;
+/* ===============================
+   Search Bar
+=============================== */
+.search-container {
+    margin-bottom: 15px;
 }
 
-.datapoint p {
-    margin: 0;
+#searchInput {
+    width: 300px;
+    padding: 8px;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+button {
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#downloadButton {
+    margin-left: 10px;
+}
+
+/* ===============================
+   Result Containers
+=============================== */
+.result {
+    margin: 15px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+span.highlight {
+    background-color: yellow;
+}
+
+/* ===============================
+   Images and Alignment
+=============================== */
+img {
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.header-img {
+    margin-right: 15px;
+}
+
+.flex-row {
+    display: flex;
+    align-items: center;
 }

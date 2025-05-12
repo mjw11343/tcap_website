@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document Search</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div style="display: flex; align-items: flex-end;">
+        <img width="200" style="margin-right: 15px;" src="img/Untitled_Artwork_6.png" />
+        <h1 style="margin: 0;">Document Search</h1>
+    </div> 
+    <div class="search-container">
+        <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Enter search term..." 
+        onkeydown="if(event.key === 'Enter') searchXML();"
+        />
+        <button onclick="searchXML()">Search</button>
+        <button id="downloadButton" onclick="downloadResults()">Download Results</button>
+    </div>
+    
+    <ul style="list-style-type: none; padding: 0;">
+        <li style="display: flex; align-items: center; margin: 5px;">
+            <a href="index.xml" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+                <xsl:value-of>Back to Index</xsl:value-of>
+                <img width="50" style="margin-left: 8px; vertical-align: middle;" src="img/Untitled_Artwork_2-rotated.png" />
+            </a>
+        </li>
+    </ul>
+
+    <div id="results"></div>
+
+    <!-- Load script at the END of the body -->
+    <script src="script.js"></script>
+</body>
+</html>

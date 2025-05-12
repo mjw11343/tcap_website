@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../case.xsl"?>
+<case title="template" collection_path="../../">
+    <link href="../../index.xml" title="Back to Main Collection" />
+    <link href="" title="Back to [YEAR] Collection" />
+    <CaseNum>
+        <heading>Case Number</heading>
+        <text>000-000</text>
+    </CaseNum>
+    <Summary>
+        <heading>Summary</heading>
+        <text>This is the summary</text>
+    </Summary>
+    <Researcher>
+        <heading>Researcher</heading>
+        <text>Michael Williams</text>
+    </Researcher>
+    <ReviewerDate>
+        <heading>Reviewer and Date</heading>
+        <text />
+    </ReviewerDate>
+    <AppealOf>
+        <heading>Appeal Of</heading>
+        <text />
+    </AppealOf>
+    <DateRendered>
+        <heading>Date Rendered</heading>
+        <text />
+    </DateRendered>
+    <JudgesCommissioners>
+        <heading>Judges/Commissioners</heading>
+        <text>Judges</text>
+    </JudgesCommissioners>
+    <Party1Title>
+        <heading>Party 1 Title</heading>
+        <text>plaintiff</text>
+    </Party1Title>
+    <Party1Names>
+        <heading>Party 1 Name(s)</heading>
+        <text>Michael</text>
+    </Party1Names>
+    <Party2Title>
+        <heading>Party 2 Title</heading>
+        <text>defendant</text>
+    </Party2Title>
+    <Party2Names>
+        <heading>Party 2 Name(s)</heading>
+        <text>Paige</text>
+    </Party2Names>
+    <StageOfAppeal>
+        <heading>Stage of Appeal</heading>
+        <text>Initial Review</text>
+    </StageOfAppeal>
+    <Facts>
+        <heading>Facts</heading>
+        <text>These are facts.</text>
+    </Facts>
+    <LegalQuestions>
+        <heading>Legal Questions</heading>
+        <text>What is the question?</text>
+    </LegalQuestions>
+    <Conclusion>
+        <heading>Conclusion</heading>
+        <text>My conclusion.</text>
+    </Conclusion>
+    <Holding>
+        <heading>Holding</heading>
+        <text />
+    </Holding>
+    <Disposition>
+        <heading>Disposition</heading>
+        <text />
+    </Disposition>
+    <Rule>
+        <heading>Rule</heading>
+        <text />
+    </Rule>
+    <CategoryTopicKeywords>
+        <heading>Category/Topic/Keywords</heading>
+        <text />
+    </CategoryTopicKeywords>
+    <ConstitutionCitations>
+        <heading>Oneida Constitution Citations</heading>
+        <text />
+    </ConstitutionCitations>
+    <CodeCitations>
+        <heading>Oneida Code Citations</heading>
+        <text />
+    </CodeCitations>
+    <CaseCitations>
+        <heading>Oneida Case Citations</heading>
+        <text />
+    </CaseCitations>
+    <ForeignCourtsCitations>
+        <heading>Foreign Courts Citations</heading>
+        <text />
+    </ForeignCourtsCitations>
+    <OtherCitations>
+        <heading>Other Citations</heading>
+        <text />
+    </OtherCitations>
+    <Jurisdiction>
+        <heading>Jurisdiction</heading>
+        <text />
+    </Jurisdiction>
+    <Dissent>
+        <heading>Dissent</heading>
+        <text />
+    </Dissent>
+    <PublishInReporter>
+        <heading>Publish in Reporter?</heading>
+        <text />
+    </PublishInReporter>
+    <QuestionsNotes>
+        <heading>Questions/Notes</heading>
+        <text />
+    </QuestionsNotes>
+    <Quotes>
+        <heading>Quotes</heading>
+        <text />
+    </Quotes>
+    <ThisCaseCitation>
+        <heading>This Case Citation</heading>
+        <text />
+    </ThisCaseCitation>
+    <HistoricalCitation>
+        <heading>Historical Citation</heading>
+        <text />
+    </HistoricalCitation>
+</case>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../case.xsl"?>
-<case title="18-AC-002">
-     <link href="../../index.xml" title="Back to Main Collection"/>
+<case title="18-AC-002" collection_path="../../">
+    <link href="../../index.xml" title="Back to Main Collection"/>
     <link href="2018.xml" title="Back to 2018 Collection"/>
-    <CASE>
-        <heading>CASE #</heading>
+    <CaseNum>
+        <heading>Case Number</heading>
         <text>18-AC-002</text>
-    </CASE>
+    </CaseNum>
     <Summary>
         <heading>Summary</heading>
         <text>On June 17th, 2017, Respondent Dustin Fish and his supervisor, Keith Janssen, were involved in an altercation...</text>
@@ -16,8 +16,8 @@
         <text>Michael Williams</text>
     </Researcher>
     <ReviewerDate>
-        <heading>Reviewer; Date</heading>
-        <text>OPC, Docket # 17-SS-004, 12/24/2018</text>
+        <heading>Reviewer and Date</heading>
+        <text></text>
     </ReviewerDate>
     <AppealOf>
         <heading>Appeal Of</heading>
@@ -76,19 +76,19 @@
         <text>A lower court "by definition abuses its discretion when it makes an error of law."</text>
     </Rule>
     <CategoryTopicKeywords>
-        <heading>Category/Topic/Key Words</heading>
+        <heading>Category/Topic/Keywords</heading>
         <text>Oneida Personnel Commission; Disciplinary Action; Abuse of Discretion; Sexual Harassment; Employee Protection Order</text>
     </CategoryTopicKeywords>
     <ConstitutionCitations>
-        <heading>Constitution Citations</heading>
+        <heading>Oneida Constitution Citations</heading>
         <text>V.D.2.I.(a); V.D.2.IV.(b); V.D.2.IV.(j); 801.8-3</text>
     </ConstitutionCitations>
     <CodeCitations>
-        <heading>Code Citations</heading>
+        <heading>Oneida Code Citations</heading>
         <text>801.8-2(a)(2)</text>
     </CodeCitations>
     <CaseCitations>
-        <heading>Case Citations</heading>
+        <heading>Oneida Case Citations</heading>
         <text>Somers v. Powless, 17-AC-002</text>
     </CaseCitations>
     <ForeignCourtsCitations>
@@ -123,8 +123,8 @@
         <heading>This Case Citation</heading>
         <text>Ravinder Vir v. Dustin Fish, 18-AC-002, December 24th, 2018</text>
     </ThisCaseCitation>
-    <HistoricalCitations>
-        <heading>Historical Citations</heading>
+    <HistoricalCitation>
+        <heading>Historical Citation</heading>
         <text></text>
-    </HistoricalCitations>
+    </HistoricalCitation>
 </case>

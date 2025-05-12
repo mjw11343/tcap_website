@@ -6,13 +6,22 @@
         <html>
             <head>
                 <title><xsl:value-of select="/case/@title"/></title>
-                <link rel="stylesheet" type="text/css" href="../style.css"/>
+                <link rel="stylesheet" type="text/css" href="../../style.css"/>
             </head>
             <body>
-                <h1><xsl:value-of select="/case/@title"/></h1>
+                <xsl:variable name="basePath" select="/case/@collection_path" />
+                <div class="flex-row">
+                    <img class="header-img" width="200" src="../../img/Untitled_Artwork_6.png" />
+                    <h1><xsl:value-of select="/case/@title"/></h1>
+                </div>
                 <ul>
                     <xsl:for-each select="/case/link">
-                        <li><a href="{@href}"><xsl:value-of select="@title"/></a></li>
+                        <li>
+                            <a href="{@href}">
+                                <xsl:value-of select="@title"/>
+                                <img width="50" src="../../img/Untitled_Artwork_2-rotated.png" />
+                            </a>
+                        </li>
                     </xsl:for-each>
                 </ul>
                 <div>
@@ -23,8 +32,8 @@
     </xsl:template>
 
     <xsl:template match="*">
-        <div class="datapoint">
-            <p><strong><xsl:value-of select="heading"/>:</strong></p>
+        <div class="section-container">
+            <p class="section-title"><xsl:value-of select="heading"/>:</p>
             <p><xsl:value-of select="text"/></p>
         </div>
     </xsl:template>

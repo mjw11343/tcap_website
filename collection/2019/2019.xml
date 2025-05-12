@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../collection.xsl"?>
+<document title="2019" collection_path="../../">
+  <content>
+  </content>
+  <collection>
+    <link href="../../index.xml" title="Back to Main Collection" />
+    <link href="000-000.xml" title="Case 000-000" />
+  </collection>
+</document>
