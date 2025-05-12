@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../../case.xsl"?>
-<case title="template">
+<case title="template" collection_path="../../">
     <link href="../../index.xml" title="Back to Main Collection" />
     <link href="" title="Back to [YEAR] Collection" />
     <CaseNum>
