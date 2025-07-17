@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../collection.xsl"?>
+<document title="" collection_path="../../">
+  <content>
+    <heading />
+  </content>
+  <collection>
+    <link href="../../index.xml" title="Back to Main Collection" />
+    <link href="Untitled.xml" title="Untitled" />
+  </collection>
+</document>

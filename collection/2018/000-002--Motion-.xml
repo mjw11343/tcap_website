@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../case.xsl"?>
+<case title="template">
+  <link href="../../index.xml" title="Back to Main Collection" />
+  <link href="./index.xml" title="Back to Year Collection" />
+  <datapoint>
+    <title>CASE NUMBER</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>SUMMARY</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>RESEARCHER</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>REVIEWER AND DATE</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>APPEAL OF</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>DATE RENDERED</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>JUDGES/COMMISSIONERS</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>PARTY 1 TITLE</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>PARTY 1 NAME(S)</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>PARTY 2 TITLE</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>PARTY 2 NAME(S)</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>INTERPRETED STAGE OF APPEAL</title>
+    <data>
+      <p>Motion</p>
+    </data>
+  </datapoint>
+  <datapoint>
+    <title>FACTS</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>LEGAL QUESTIONS</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>CONCLUSION</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>HOLDING</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>DISPOSITION</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>RULE</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>CATEGORY/TOPIC/KEYWORDS</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>ONEIDA CONSTITUTION CITATIONS</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>ONEIDA CODE CITATIONS</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>ONEIDA CASE CITATIONS</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>FOREIGN COURTS CITATIONS</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>OTHER CITATIONS</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>JURISDICTION</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>DISSENT</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>PUBLISH IN REPORTER?</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>QUESTIONS/NOTES</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>QUOTES</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>THIS CASE CITATION</title>
+    <data />
+  </datapoint>
+  <datapoint>
+    <title>HISTORICAL CITATION</title>
+    <data>
+      <p>000-002</p>
+    </data>
+  </datapoint>
+</case>

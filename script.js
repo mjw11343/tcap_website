@@ -84,7 +84,7 @@ async function searchXML() {
     }
 
     console.log(`🔎 Searching for: ${input}`);
-    
+
     const folders = await loadFolders();
 
     if (folders.length === 0) {
@@ -94,35 +94,26 @@ async function searchXML() {
     }
 
     let resultsFound = false;
-
-    // 🗂️ **Group results by file path**
     const groupedResults = {};
 
-    // Iterate over all folders and files
     for (let folder of folders) {
         for (let file of folder.files) {
             console.log(`🔄 Searching in file: ${file}`);
-
             const xmlDoc = await loadXML(file);
-            if (!xmlDoc) {
-                console.error(`❌ Loading failed for: ${file}`);
-                continue;
-            }
+            if (!xmlDoc) continue;
 
-            const textElements = xmlDoc.getElementsByTagName('text');
+            const paragraphs = xmlDoc.getElementsByTagName('p');
 
-            for (let element of textElements) {
-                if (element.textContent.toLowerCase().includes(input)) {
+            for (let element of paragraphs) {
+                const text = element.textContent || '';
+                if (text.toLowerCase().includes(input)) {
                     console.log(`✅ Match found in ${file}`);
-                    
-                    const parent = element.parentNode;
-                    const heading = parent.getElementsByTagName('heading')[0]?.textContent || "No Heading";
-                    const highlightedText = highlightAllOccurrences(element.textContent, input);
+                    const datapoint = element.closest('datapoint');
+                    const titleElement = datapoint?.getElementsByTagName('title')[0];
+                    const heading = titleElement?.textContent || "No Datapoint Title";
+                    const highlightedText = highlightAllOccurrences(text, input);
 
-                    if (!groupedResults[file]) {
-                        groupedResults[file] = [];
-                    }
-
+                    if (!groupedResults[file]) groupedResults[file] = [];
                     groupedResults[file].push(`
                         <strong>${heading}</strong><br>
                         <pre style="white-space: pre-wrap; font-size: 12px;">${highlightedText}</pre>
@@ -135,7 +126,7 @@ async function searchXML() {
         }
     }
 
-    // 📝 **Render Grouped Results**
+    // 📝 Render grouped results
     Object.keys(groupedResults).forEach((file) => {
         const combinedResults = groupedResults[file].join("");
         let resultContent = `

@@ -1,0 +1,24 @@
+[2025-07-16 18:50:29] Deleted file: C:\Users\Slewe\Desktop\Git\tcap_website\collection\2018\000-002--Final-Decision-.xml
+[2025-07-16 18:50:29] Deleted file: C:\Users\Slewe\Desktop\Git\tcap_website\collection\2018\000-002--Motion-.xml
+[2025-07-16 18:50:29] Deleted file: C:\Users\Slewe\Desktop\Git\tcap_website\collection\2018\index.xml
+[2025-07-16 18:50:29] Deleted file: C:\Users\Slewe\Desktop\Git\tcap_website\collection\2019\index.xml
+[2025-07-16 18:50:29] Deleted file: C:\Users\Slewe\Desktop\Git\tcap_website\collection\2019\Untitled.xml
+[2025-07-16 18:50:29] Failed to delete folder: C:\Users\Slewe\Desktop\Git\tcap_website\collection\2018 – [WinError 5] Access is denied: 'C:\\Users\\Slewe\\Desktop\\Git\\tcap_website\\collection\\2018'
+[2025-07-16 18:50:29] Failed to delete folder: C:\Users\Slewe\Desktop\Git\tcap_website\collection\2019 – [WinError 5] Access is denied: 'C:\\Users\\Slewe\\Desktop\\Git\\tcap_website\\collection\\2019'
+[2025-07-16 18:50:29] Parsed 31 datapoints from 000-001.docx
+[2025-07-16 18:50:29] Parsed 31 datapoints from 000-002.docx
+[2025-07-16 18:50:29] Parsed 32 datapoints from test_case.docx
+[2025-07-16 18:50:29] Warning: datapoint 'HISTORICAL CITATION' found but has no data.
+[2025-07-16 18:50:29] Resolved duplicate '000-002' → '000-002 (Motion)'
+[2025-07-16 18:50:29] Resolved duplicate '000-002' → '000-002 (Final Decision)'
+[2025-07-16 18:50:29] Final title: '000-002 (Motion)' (from 000-001.docx)
+[2025-07-16 18:50:29] Final title: '000-002 (Final Decision)' (from 000-002.docx)
+[2025-07-16 18:50:29] Final title: 'Untitled' (from test_case.docx)
+[2025-07-16 18:50:29] Wrote case file: C:\Users\Slewe\Desktop\Git\tcap_website\collection\2018\000-002--Motion-.xml
+[2025-07-16 18:50:29] Wrote case file: C:\Users\Slewe\Desktop\Git\tcap_website\collection\2018\000-002--Final-Decision-.xml
+[2025-07-16 18:50:29] Wrote case file: C:\Users\Slewe\Desktop\Git\tcap_website\collection\2019\Untitled.xml
+[2025-07-16 18:50:29] Wrote folders.json
+[2025-07-16 18:50:29] Wrote year index: C:\Users\Slewe\Desktop\Git\tcap_website\collection\2018\index.xml
+[2025-07-16 18:50:29] Wrote year index: C:\Users\Slewe\Desktop\Git\tcap_website\collection\2019\index.xml
+[2025-07-16 18:50:29] Wrote main index.xml
+Total runtime: 0.14 seconds
